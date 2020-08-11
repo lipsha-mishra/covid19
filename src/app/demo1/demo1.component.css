@@ -1,0 +1,80 @@
+.label1{
+   color:#ff073a;
+}
+.label2{
+    color:#007bff;
+ }
+ .label3{
+    color:#28a745;
+ }
+ .label4{
+    color:#6c757d;
+ }
+ .label5{
+     color:#6c757d;
+ }
+ .topdiv{
+   align-self: center;
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+   width: 30rem;
+ }
+ .middiv{
+   display: flex;
+   flex-direction: column;
+   width: 30%;
+ }
+ .alignselfcenter{
+   align-self: center;
+ }
+ .height10{
+    height:4rem;
+ }
+ .bottomdiv{
+   align-self: center;
+   border-collapse: separate;
+   border-spacing: 10px 11px;
+   font-family: "archia";
+   position: relative;
+   width: 30rem;
+   display: table;
+   box-sizing: border-box;
+   border-color: grey;
+ }
+ .backgroundcolor{
+   /* background-color: gray; */
+   background: #f6f6f7;
+   border-radius: 5px;
+ }
+ .alignleft{
+  text-align: left;
+ }
+ .alignright{
+  text-align: right;
+ }
+ .aligncenter{
+  text-align: center;
+ }
+ .fixedPosition{
+  position: sticky!important;
+  top: 0px;
+  transition: all .1s ease-in-out;
+  z-index: 99;
+ }
+ .marginleft27{
+  margin-left: 27rem;
+ }
+ .deltafont{
+  font-size: 11px!important;
+ }
+ .heightwidth10{
+  height:10px;
+  width:10px;
+ }
+.LanguageSwitcher {
+  z-index: 999;
+}
+.aligncenter1{
+  width:50%;
+}

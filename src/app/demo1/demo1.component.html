@@ -1,0 +1,117 @@
+
+<div class="marginleft27">
+<div class="topdiv">
+  <div class="middiv label1">
+    <h5 class="aligncenter">Confirmed</h5>
+    <h4 class="aligncenter">[+{{data.statewise[0].deltaconfirmed}}]</h4>
+    <h1 class="aligncenter">{{data.statewise[0].confirmed}}</h1>
+  </div>
+  <div class="middiv label2">
+    <h5 class="aligncenter">Active</h5>
+    <h4 class="aligncenter">0</h4>
+    <h1 class="aligncenter">{{data.statewise[0].active}}</h1>
+  </div>
+  <div class="middiv label3">
+    <h5 class="aligncenter">Recovered</h5>
+    <h4 class="aligncenter">[+{{data.statewise[0].deltarecovered}}]</h4>
+    <h1 class="aligncenter">{{data.statewise[0].recovered}}</h1>
+  </div>
+  <div class="middiv label4">
+    <h5 class="aligncenter">Deceased</h5>
+    <h4 class="aligncenter">[+{{data.statewise[0].deltadeaths}}]</h4>
+    <h1 class="aligncenter">{{data.statewise[0].deaths}}</h1>
+  </div>
+</div>
+<div class="height10">
+</div>
+<table class="bottomdiv">
+  <thead>
+    <tr>
+      <th class="backgroundcolor alignleft fixedPosition">State/UT</th>
+      <th class="backgroundcolor label1 alignleft fixedPosition">Confirmed</th>
+      <th class="backgroundcolor label2 alignleft fixedPosition">Active</th>
+      <th class="backgroundcolor label3 alignleft fixedPosition">Recovered</th>
+      <th class="backgroundcolor label4 alignleft fixedPosition">Deceased</th>
+    </tr>
+  </thead>
+  <tbody *ngFor="let commonData of combinedData; let i = index">
+    <tr id="state_{{i}}" (click)="dispDistrictsAff(commonData.districtData.length, i)" (mouseover)="changeColour(i)" (mouseout)="removeColour(i)">
+      <td id="stateName_{{i}}" *ngIf = "commonData.stateData.confirmed != 0" class="backgroundcolor alignleft">{{commonData.stateData.state}}</td>
+      <td id="confirm_{{i}}" *ngIf = "commonData.stateData.confirmed != 0" class="backgroundcolor alignright">
+        <span class="deltafont label1" *ngIf = "commonData.stateData.deltaconfirmed != 0">&#8593;{{commonData.stateData.deltaconfirmed}} </span>
+        <span>{{commonData.stateData.confirmed}}</span>
+      </td>
+      <td id="active_{{i}}" *ngIf = "commonData.stateData.confirmed != 0" class="backgroundcolor alignright">{{commonData.stateData.active}}</td>
+      <td id="recovered_{{i}}" *ngIf = "commonData.stateData.confirmed != 0" class="backgroundcolor alignright">
+        <span class="deltafont label1" *ngIf = "commonData.stateData.deltarecovered != 0">&#8593;{{commonData.stateData.deltarecovered}} </span>
+        <span>{{commonData.stateData.recovered}}</span>
+      <td id="death_{{i}}" *ngIf = "commonData.stateData.confirmed != 0" class="backgroundcolor alignright">
+        <span class="deltafont label1" *ngIf = "commonData.stateData.deltadeaths != 0">&#8593;{{commonData.stateData.deltadeaths}} </span>
+        <span>{{commonData.stateData.deaths}}</span>
+    </tr>
+
+    <tr hidden id="districts_{{i}}{{j}}"  *ngFor="let districtData of commonData.districtData; let j = index">
+      <td id="districts_{{i}}{{j}}" *ngIf = "districtData.confirmed != 0" class="backgroundcolor alignleft label1">{{districtData.district}}</td>
+      <td id="districts_{{i}}{{j}}" *ngIf = "districtData.confirmed != 0" class="backgroundcolor alignright">
+        <span class="deltafont label1" *ngIf = "districtData.delta.confirmed != 0">&#8593;{{districtData.delta.confirmed}} </span>
+        <span>{{districtData.confirmed}}</span>
+      </td>
+      <td id="districts_{{i}}{{j}}" *ngIf = "districtData.confirmed != 0" class="backgroundcolor alignright">{{districtData.active}}</td>
+      <td id="districts_{{i}}{{j}}" *ngIf = "districtData.confirmed != 0" class="backgroundcolor alignright">
+        <span class="deltafont label1" *ngIf = "districtData.delta.recovered != 0">&#8593;{{districtData.delta.recovered}} </span>
+        <span>{{districtData.recovered}}</span>
+      </td>
+      <td id="districts_{{i}}{{j}}" *ngIf = "districtData.confirmed != 0" class="backgroundcolor alignright">
+        <span class="deltafont label1" *ngIf = "districtData.delta.deceased != 0">&#8593;{{districtData.delta.deceased}} </span>
+        <span>{{districtData.deceased}}</span>
+      </td>
+    </tr>
+
+  </tbody>
+  <tbody>
+    <tr (mouseover)="changeColour1()" (mouseout)="removeColour2()">
+      <td id="total" class="backgroundcolor alignleft">  {{data.statewise[0].state}} </td>
+      <td id="total_confirmed" class="backgroundcolor alignright">
+        <span *ngIf ="data.statewise[0].deltaconfirmed != 0" class="deltafont label1">&#8593;{{data.statewise[0].deltaconfirmed}} </span>  
+        <span>{{data.statewise[0].confirmed}}</span>
+      </td>
+      <td id="total_active" class="backgroundcolor alignright">  {{data.statewise[0].active}} </td>
+      <td id="total_recovered" class="backgroundcolor alignright">
+        <span *ngIf ="data.statewise[0].deltarecovered != 0" class="deltafont label1">&#8593;{{data.statewise[0].deltarecovered}} </span>  
+        <span>{{data.statewise[0].recovered}}</span>
+      </td>
+      <td id="total_deceased" class="backgroundcolor alignright">
+        <span *ngIf ="data.statewise[0].deltadeaths != 0" class="deltafont label1">&#8593;{{data.statewise[0].deltadeaths}} </span>  
+        <span>{{data.statewise[0].deaths}}</span>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="aligncenter">
+  <div class="aligncenter1">
+<h1>India Map</h1>
+</div>
+    <div class="topdiv">
+  <div class="middiv label1">
+    <h5 class="aligncenter">totalindividualstested</h5>
+    <h1 class="aligncenter">{{data.tested[0].totalindividualstested}}</h1>
+  </div>  
+  <div class="topdiv">
+<div class="middiv label2">
+  <h5 class="aligncenter">totalpositivecases</h5>
+  <h1 class="aligncenter">{{data.tested[0].totalpositivecases}}</h1>
+</div>  
+  <div class="topdiv">
+<div class="middiv label3">
+  <h5 class="aligncenter">totalsamplestested</h5>
+  <h1 class="aligncenter">{{data.tested[0].totalsamplestested}}</h1>
+</div> 
+<div class="topdiv">
+<div class="middiv label4">
+  <h5 class="aligncenter">updatetimestamp</h5>
+  <h1 class="aligncenter">{{lastUpdatedTime}}</h1>
+</div>  
+</div> 
+</div>
+</div>
